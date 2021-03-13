@@ -13,6 +13,7 @@ import { ViewResolvedRequestsComponent } from './component/view-resolved-request
 import { ChatComponent } from './component/chat/chat.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { NavbarBreederComponent } from './component/navbar-breeder/navbar-breeder.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarBreederComponent } from './component/navbar-breeder/navbar-breede
     ViewResolvedRequestsComponent,
     ChatComponent,
     NavbarComponent,
-    NavbarBreederComponent
+    NavbarBreederComponent,
+    HomeComponent    
   ],
   imports: [
     BrowserModule,

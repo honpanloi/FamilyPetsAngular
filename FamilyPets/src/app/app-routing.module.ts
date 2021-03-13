@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import {BuyerHomepageComponent} from './component/buyer-homepage/buyer-homepage.component';
 import {BreederHomepageComponent} from './component/breeder-homepage/breeder-homepage.component';
@@ -10,13 +11,14 @@ import {ViewResolvedRequestsComponent} from './component/view-resolved-requests/
 
 
 const routes: Routes = [
-  {path : 'login', component : LoginComponent },
+  {path: '', pathMatch:'full', component: HomeComponent}, // home route
+  {path : 'login',  component : LoginComponent }, 
   {path : 'buyer', component : BuyerHomepageComponent},
   {path : 'breeder', component : BreederHomepageComponent},
   {path : 'info' , component : UserInformationComponent},
   {path: 'submit', component : SubmitRequestComponent},
   {path: 'pending' , component : ViewPendingRequestsComponent},
-  {path : 'resolved' , component : ViewResolvedRequestsComponent}
+  {path : 'resolved' , component : ViewResolvedRequestsComponent} 
 ];
 
 @NgModule({
