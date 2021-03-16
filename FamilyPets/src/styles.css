@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+body
+{
+    text-align: center;
+    margin: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;   
+    
+}
+.container
+{
+    width: 100%;
+    margin: 0;
+    padding: 1em 0;
+}
+
+
+
+
+
+header
+{
+    background-color: rgb(207, 205, 205);    
+}
+
+ul {
+    list-style-type: none;
+    
+    margin: 0 5px;   
+      
+  }
+  
+  li {
+    
+    display: inline;
+    float: left;
+   
+  }
+  
+  a {    
+    color: black;
+    text-align: center;    
+    text-decoration: none; 
+    padding:1em;
+    list-style: none;  
+    display:fixed; 
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: rgb(136, 190, 221);
+  }

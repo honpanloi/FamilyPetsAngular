@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './component/login/login.component';
 import { BuyerHomepageComponent } from './component/buyer-homepage/buyer-homepage.component';
 import { BreederHomepageComponent } from './component/breeder-homepage/breeder-homepage.component';
 import { UserInformationComponent } from './component/user-information/user-information.component';
@@ -13,11 +11,14 @@ import { ViewResolvedRequestsComponent } from './component/view-resolved-request
 import { ChatComponent } from './component/chat/chat.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { NavbarBreederComponent } from './component/navbar-breeder/navbar-breeder.component';
+import { HomeComponent } from './component/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     BuyerHomepageComponent,
     BreederHomepageComponent,
     UserInformationComponent,
@@ -26,12 +27,18 @@ import { NavbarBreederComponent } from './component/navbar-breeder/navbar-breede
     ViewResolvedRequestsComponent,
     ChatComponent,
     NavbarComponent,
-    NavbarBreederComponent
+    NavbarBreederComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
