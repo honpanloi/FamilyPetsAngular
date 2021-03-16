@@ -12,9 +12,12 @@ import { ChatComponent } from './component/chat/chat.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { NavbarBreederComponent } from './component/navbar-breeder/navbar-breeder.component';
 import { HomeComponent } from './component/home/home.component';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+=======
+>>>>>>> 666224e9c661ff1c402c30d73ba87f60b5071e81
 
 @NgModule({
   declarations: [
@@ -28,8 +31,12 @@ import { FormsModule } from '@angular/forms';
     ChatComponent,
     NavbarComponent,
     NavbarBreederComponent,
+<<<<<<< HEAD
     HomeComponent
 
+=======
+    HomeComponent    
+>>>>>>> 666224e9c661ff1c402c30d73ba87f60b5071e81
   ],
   imports: [
     BrowserModule,
