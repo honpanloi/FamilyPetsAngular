@@ -9,10 +9,11 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   constructor(private httpClient : HttpClient) {}
-/*
+
   login(email:String, password:String): Observable <any>
   {
-    return this.httpClient.post()
+    return this.httpClient.post<any>('http://localhost:8080/login', {params: email, password});
+
   }
-*/
+
 }
