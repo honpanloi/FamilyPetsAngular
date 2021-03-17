@@ -16,7 +16,7 @@ export class LoginService {
     
     this.loginClass.email = email;
     this.loginClass.password = password;
-    return this.httpClient.post<any>('http://localhost:8080/login',this.loginClass);
+    return this.httpClient.post<any>('http://localhost:8080/login?email='+email+'&password='+password, "");
 
   }
 
