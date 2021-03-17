@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { Person } from 'src/app/models/person/person';
 // import { Login } from 'src/app/models/login/login';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -12,26 +13,37 @@ export class HomeComponent implements OnInit {
   
   email:string = "";
   password:string ="";
+  person: Person | undefined;
   constructor(private loginService:LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
  
-
   loginFunction(){
 
     // const email2:string = this.email;
     // const password2:string = this.password;
     this.loginService.login(this.email, this.password).subscribe(
-      (data) => {
-        if(data===0){
+      (data) => { 
+        this.person = data;
+        if(this.person == null){
           //routing logic
           console.log("Please try again.")
         }else{
           //display a message
           console.log("You logged in.")
-          this.router.navigateByUrl("/buyer");
+
+          console.log(this.person);
+
+          if(this.person.isbreeder){
+            this.router.navigateByUrl("/breeder");
+          }
+          else{
+            this.router.navigateByUrl("/buyer");
+          }
+
+          
+
         }
         
       },

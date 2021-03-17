@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Login } from 'src/app/models/login/login';
+import { Person } from 'src/app/models/person/person';
 // import { Login } from "./models/login";
 
 @Injectable({
@@ -11,7 +12,7 @@ export class LoginService {
   loginClass: Login = new Login("","");
   constructor(private httpClient : HttpClient) {}
 
-  login(email:String, password:String): Observable <any>
+  login(email:String, password:String): Observable <Person>
   {
     
     this.loginClass.email = email;

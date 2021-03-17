@@ -9,6 +9,7 @@ import {ViewPendingRequestsComponent} from './component/view-pending-requests/vi
 import {ViewResolvedRequestsComponent} from './component/view-resolved-requests/view-resolved-requests.component';
 
 
+
 const routes: Routes = [
   {path: '', pathMatch:'full', component: HomeComponent},// home route   
   {path : 'buyer', component : BuyerHomepageComponent},

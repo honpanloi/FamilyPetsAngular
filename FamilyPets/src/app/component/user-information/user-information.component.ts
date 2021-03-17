@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Person } from 'src/app/models/person/person';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-user-information',
