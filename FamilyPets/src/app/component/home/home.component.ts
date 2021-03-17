@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 // import { Login } from 'src/app/models/login/login';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   
   email:string = "";
   password:string ="";
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,10 +25,18 @@ export class HomeComponent implements OnInit {
     // const password2:string = this.password;
     this.loginService.login(this.email, this.password).subscribe(
       (data) => {
-        console.log(data)
+        if(data===0){
+          //routing logic
+          console.log("Please try again.")
+        }else{
+          //display a message
+          console.log("You logged in.")
+          this.router.navigateByUrl("/buyer");
+        }
+        
       },
       () => {
-        console.log("Please try again.")
+        
       }
     )
   }
