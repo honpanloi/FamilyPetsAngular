@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from 'src/app/models/login/login';
+// import { Login } from 'src/app/models/login/login';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -8,8 +8,9 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  login:Login;
-
+  
+  email:string = "";
+  password:string ="";
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
@@ -18,7 +19,10 @@ export class HomeComponent implements OnInit {
  
 
   loginFunction(){
-    this.loginService.login(this.login.email, this.login.password).subscribe(
+
+    // const email2:string = this.email;
+    // const password2:string = this.password;
+    this.loginService.login(this.email, this.password).subscribe(
       (data) => {
         console.log(data)
       },
