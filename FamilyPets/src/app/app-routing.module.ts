@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: '', pathMatch:'full', component: HomeComponent},// home route   
   {path : 'buyer', component : BuyerHomepageComponent},
   {path : 'breeder', component : BreederHomepageComponent},
-  {path : 'info' , component : UserInformationComponent},
+  {path : 'buyer/info' , component : UserInformationComponent},
+  {path : 'breeder/info' , component : UserInformationComponent},
   {path: 'submit', component : SubmitRequestComponent},
   {path: 'pending' , component : ViewPendingRequestsComponent},
   {path : 'resolved' , component : ViewResolvedRequestsComponent} 
