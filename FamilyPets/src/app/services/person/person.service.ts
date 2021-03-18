@@ -19,4 +19,9 @@ export class PersonService {
     
     return this.httpClient.get<any>('http://localhost:8080/person/view/'+this.person.personid);
   }
+
+  updateInformation(person:Person):Observable<Person>{
+    return this.httpClient.post<Person>('http://localhost:8080/person/update', person);
+  }
+
 }
