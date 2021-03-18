@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit {
         if(this.person == null){
           //routing logic
           console.log("Please try again.")
+          window.alert("Incorrect username or password. Please try again");
+
         }else{
           //display a message
           console.log("You logged in.")
-
-          console.log(this.person);
 
           if(this.person.isbreeder){
             this.router.navigateByUrl("/breeder");

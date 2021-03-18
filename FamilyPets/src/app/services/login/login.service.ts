@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Login } from 'src/app/models/login/login';
 import { Person } from 'src/app/models/person/person';
+import { CookieService } from 'ngx-cookie-service';
+
 // import { Login } from "./models/login";
 
 @Injectable({
@@ -10,15 +12,31 @@ import { Person } from 'src/app/models/person/person';
 })
 export class LoginService {
   loginClass: Login = new Login("","");
-  constructor(private httpClient : HttpClient) {}
+  constructor(private httpClient:HttpClient, private cookieService:CookieService) {}
 
+  returnedPerson: Observable <Person> = new Observable;
   login(email:String, password:String): Observable <Person>
   {
     
     this.loginClass.email = email;
     this.loginClass.password = password;
-    return this.httpClient.post<any>('http://localhost:8080/login?email='+email+'&password='+password, "");
+    
+    
 
+    this.returnedPerson = this.httpClient.post<Person>('http://localhost:8080/login?email='+email+'&password='+password, "", { });
+
+    this.returnedPerson.subscribe(
+      (data) => {
+        
+        this.cookieService.set("person", JSON.stringify(data));
+        console.log(JSON.parse(this.cookieService.get("person")));
+      },
+      () => {
+
+      }
+    )
+
+    return this.returnedPerson;
   }
 
 }

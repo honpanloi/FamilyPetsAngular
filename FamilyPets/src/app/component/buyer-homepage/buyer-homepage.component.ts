@@ -11,5 +11,6 @@ export class BuyerHomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }
