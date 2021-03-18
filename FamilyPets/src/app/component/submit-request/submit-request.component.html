@@ -1,1 +1,45 @@
-<p>submit-request works!</p>
+
+
+<nav>
+    <!--<h2>{{ title }}</h2> -->
+    <ul>
+    <li>  <a routerLink="" >Log Out </a> </li>
+    </ul>
+    <ul>
+      <li><a  routerLink="info" (click)="moveToAnotherPage('/info')">Info </a> </li>
+    </ul>
+    <ul>
+      <li><a  routerLink="submit" (click)="moveToAnotherPage('/submit')">Submit </a> </li>
+    </ul>
+    <ul>
+      <li><a  routerLink="pending" (click)="moveToAnotherPage('/pending')">Pending </a> </li>
+    </ul>
+    <ul>
+      <li><a  routerLink="resolved" (click)="moveToAnotherPage('/resolved')">Resolved </a> </li>
+    </ul>
+  </nav>
+  
+     <h1>Create New Request</h1>
+  
+  <div>
+  
+      <table class="table table-bordered table-striped">
+        <thead class= "thead-dark">
+           
+            <tr>
+                <td>Animal Type</td>
+                <td><input type='text' [(ngModel)]="request.animal" ></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>Breed:</td>
+              <td><input type='text' [(ngModel)]="request.breed" ></td>
+            </tr>
+            <tr>
+             <td></td> <button (click)="newRequest()">Submit</button>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  

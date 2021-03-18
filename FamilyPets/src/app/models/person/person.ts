@@ -6,6 +6,7 @@ export class Person {
     public lastname:String;
     public isbreeder:boolean;
     public dob:Date;
+    public displayDob:String="9999";
     public phonenumber:String;
     public city:String;
 
@@ -18,6 +19,7 @@ export class Person {
         this.dob = dob;
         this.phonenumber = phonenumber;
         this.city = city;
-        
+			// this.displayDob = dob.getFullYear() + "-" + dob.getMonth()+ "-" + dob.getDay();
+        this.displayDob="1999"
     }
 }
