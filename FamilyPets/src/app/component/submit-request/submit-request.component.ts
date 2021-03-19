@@ -27,9 +27,10 @@ export class SubmitRequestComponent implements OnInit {
     this.person=JSON.parse(this.cookieService.get("person"))
     this.request.buyerid=this.person;
     this.request.breederid=this.person2;
+    
     this.requestService.newRequest(this.request).subscribe(
     (Data) => {console.log(this.request)},
-      () => {console.log("Good try. You failed.")}
+      () => {console.log("Please try again.")}
     )}
 
     moveToAnotherPage(value : string){
