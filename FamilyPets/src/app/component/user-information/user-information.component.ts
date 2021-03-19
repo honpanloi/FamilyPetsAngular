@@ -64,4 +64,10 @@ export class UserInformationComponent implements OnInit {
     this.router.navigate([value], {skipLocationChange: true});
   }
 
+  displayChat:boolean =false;
+
+  viewChat(){
+    this.displayChat = !this.displayChat;
+  }
+
 }

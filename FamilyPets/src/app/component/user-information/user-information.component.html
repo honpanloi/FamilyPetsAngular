@@ -64,8 +64,10 @@
             <td><input type='text' [(ngModel)]="person2.email" ></td>
           </tr>
           <tr>
-           <td></td><td></td> <button (click)="updateInformation()">Submit</button>
+           <td></td><td></td> <button (click)="updateInformation()">Submit</button> <button (click)="viewChat()">View Message</button>
           </tr>
       </tbody>
   </table>
 </div>
+
+<app-chat *ngIf="displayChat === true"></app-chat>
