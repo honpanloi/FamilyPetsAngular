@@ -38,10 +38,8 @@ export class ViewResolvedRequestsComponent implements OnInit {
 
     viewChat(r:Request){
       this.cookieService.set("chatId",r.requestid.toString())
-      if(this.displayChat===false){
-        this.displayChat = true;
-      }
-      console.log(this.cookieService.get("chatId"))
+      this.displayChat= !this.displayChat;
+      //console.log(this.cookieService.get("chatId"))
     }
 
 }

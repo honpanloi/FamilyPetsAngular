@@ -20,7 +20,19 @@ export class ChatComponent implements OnInit {
   messages:Message[] = [];
 
   requestid:number = 0;
-  
+
+  refreshChat(){
+    this.requestid = parseInt(this.cookieService.get("chatId"))
+    this.messageService.getMessageByRequestId(this.requestid).subscribe(
+      (data) => {
+        this.messages = data;
+        console.log(this.messages);
+      },
+      () =>{
+        console.log("Can't see messages.")
+      }
+    )
+  }
 
   displayChat(){
     this.requestid = parseInt(this.cookieService.get("chatId"))
@@ -39,8 +51,9 @@ export class ChatComponent implements OnInit {
   content:string = "";
   person:Person = JSON.parse(this.cookieService.get("person"))
   sendMessage(){
-    this.requestid = parseInt(this.cookieService.get("chatId"))
+    //this.requestid = parseInt(this.cookieService.get("chatId"))
     if(this.content){
+      console.log(this.requestid)
       this.messageService.sendMessage(this.content, this.person, this.requestid).subscribe(
         (data) => {
           console.log("message sent")
