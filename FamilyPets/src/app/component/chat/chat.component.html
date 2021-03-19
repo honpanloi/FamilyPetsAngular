@@ -1,7 +1,8 @@
-<div *ngFor="let m of messages">
+<div class="chatBox">
+    <div *ngFor="let m of messages">
     <td>{{m.senderid.firstname}}:</td><td>{{m.content}}</td>
 </div>
 
 <p>Request ID: {{requestid}}</p><input type="text" placeholder="message" [(ngModel)]="content"><input type="submit" (click) = "sendMessage()" value="Send">
 <button (click) = "displayChat()">Refresh Chat</button>
-
+</div>

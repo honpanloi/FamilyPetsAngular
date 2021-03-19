@@ -40,15 +40,15 @@
             <tbody>
             <tr *ngFor= "let r of requests">              
                 <td>{{r.requestid}}<input name="r.requestid" [(ngModel)]="r.requestid" type="hidden"></td>
-                <td>{{r.animal}}<input name="r.animal" [(ngModel)]="r.animal" type="hidden"></td>
-                <td>{{r.breed}}<input name="r.breed" [(ngModel)]="r.breed" type="hidden"></td>
+                <td>{{r.animal}}<br><input  [(ngModel)]="r.animal"> <input name="r.animal" [(ngModel)]="r.animal" type="hidden"></td>
+                <td>{{r.breed}}<br><input  [(ngModel)]="r.breed"> <input name="r.breed" [(ngModel)]="r.breed" type="hidden"></td>
                 <td>{{r.dateaccepted}}<input name="r.dateaccepted" [(ngModel)]="r.dateaccepted" type="hidden"></td>
                 <td>{{r.dateissued}}<input name="r.dateissued" [(ngModel)]="r.dateissued" type="hidden"></td>
                 <td>{{r.photolink}}<input name="r.photolink" [(ngModel)]="r.photolink" type="hidden"></td>
                 <td>{{r.requeststatus}}<input name="r.requeststatus" [(ngModel)]="r.requeststatus" type="hidden"></td>
                 <td>{{r.breederid}}<input name="r.breederid" [(ngModel)]="r.breederid" type="hidden"></td>
                 <td>{{r.buyerid.personid}}<input name="r.buyerid.personid" [(ngModel)]="r.buyerid.personid" type="hidden"></td>
-                <td><button *ngIf="visibility===true" class="acceptButton" id="r.requestid" (click)="accept(r)">Accept</button></td>
+                <td><button *ngIf="loggedInPerson.isbreeder===false" (click)="edit(r)">Edit</button><button *ngIf="visibility===true" (click)="accept(r)">Accept</button></td>
             </tr>
              
             

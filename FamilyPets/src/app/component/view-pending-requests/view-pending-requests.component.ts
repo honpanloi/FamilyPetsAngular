@@ -18,13 +18,14 @@ export class ViewPendingRequestsComponent implements OnInit {
   ngOnInit(): void {
     this.viewPending();
     this.toggleVisibility();
+    this.loggedInPerson=JSON.parse(this.cookieService.get("person"))
   }
 
   moveToAnotherPage(value : string){
     this.router.navigate([value], {skipLocationChange: true});
   }
   
-  
+  loggedInPerson:Person = new Person(0,"","","",true,new Date(),"","")
   person:Person = new Person(0,"","","",true,new Date(),"","")
 
   personPage:Person = new Person(0,"","","",true,new Date(),"","")
@@ -40,6 +41,20 @@ export class ViewPendingRequestsComponent implements OnInit {
     if(this.breeder.isbreeder){
       this.visibility = true;
     }
+  }
+
+  
+
+  edit(r:Request){
+    console.log(r)
+    this.request2 = new Request(r.requestid, r.animal, r.breed, new Date(), r.dateissued, r.photolink, "pending", this.breeder, r.buyerid)
+    console.log(this.request2)
+    this.requestService.update(this.request2).subscribe(
+      (data) => {console.log(data)
+      this.viewPending()},
+      () => {console.log("Please try again")}
+    )
+
   }
 
 

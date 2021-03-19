@@ -1,0 +1,7 @@
+div.chatBox{
+    float: center;
+    background-color: plum;
+    width:max-content;
+    padding: 15px;
+    border-radius: 15px;
+}

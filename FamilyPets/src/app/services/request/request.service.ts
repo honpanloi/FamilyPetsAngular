@@ -40,6 +40,10 @@ export class RequestService {
     return this.httpClient.post<Request>('http://localhost:8080/request/update', request);
   }
 
+  update(request:Request):Observable<any>{
+    return this.httpClient.post<Request>('http://localhost:8080/request/update/animaltype', request);
+  }
+
 
 
   viewAccepted():Observable<any>{
