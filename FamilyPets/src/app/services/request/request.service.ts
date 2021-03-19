@@ -11,11 +11,43 @@ import { Request } from 'src/app/models/request/request';
 export class RequestService {
 
   constructor(private httpClient:HttpClient, private cookieService:CookieService) { }
+
   person:Person = new Person(0,"","","",true,new Date(),"","")
   request:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
+  // buyerid:number = 0;
+  // requeststatus:string = "";
 
   newRequest(request:Request):Observable<any>{
     return this.httpClient.post<Request>('http://localhost:8080/request/create', request);
+  }
+
+  viewRequests(buyerid:number, requeststatus:string):Observable<any>{
+    return this.httpClient.get('http://localhost:8080/request/view/'+buyerid+'/'+requeststatus);
+  }
+
+  viewPending():Observable<any>{
+
+    this.person = JSON.parse(this.cookieService.get("person"))
+    
+    if(this.person.isbreeder){
+      return this.httpClient.get('http://localhost:8080/request/pending');
+    }
+    else{
+      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/pending');
+    }
+  }
+
+  viewAccepted():Observable<any>{
+    
+    this.person = JSON.parse(this.cookieService.get("person"))
+
+    if(this.person.isbreeder){
+      return this.httpClient.get('http://localhost:8080/request/resolved/'+this.person.personid);
+    }
+    else{
+      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/accepted')
+    }
+
   }
 
 }

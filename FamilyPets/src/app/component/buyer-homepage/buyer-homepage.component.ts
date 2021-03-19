@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buyer-homepage',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyerHomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   
+
+  moveToAnotherPage(value : string){
+    this.router.navigate([value], {skipLocationChange: true});
+  }
 
 }
