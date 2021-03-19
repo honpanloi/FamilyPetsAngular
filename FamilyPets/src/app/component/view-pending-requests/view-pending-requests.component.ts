@@ -24,7 +24,7 @@ export class ViewPendingRequestsComponent implements OnInit {
   moveToAnotherPage(value : string){
     this.router.navigate([value], {skipLocationChange: true});
   }
-  
+
   loggedInPerson:Person = new Person(0,"","","",true,new Date(),"","")
   person:Person = new Person(0,"","","",true,new Date(),"","")
 
@@ -43,7 +43,7 @@ export class ViewPendingRequestsComponent implements OnInit {
     }
   }
 
-  
+  edited:Boolean = false;
 
   edit(r:Request){
     console.log(r)
@@ -51,7 +51,13 @@ export class ViewPendingRequestsComponent implements OnInit {
     console.log(this.request2)
     this.requestService.update(this.request2).subscribe(
       (data) => {console.log(data)
-      this.viewPending()},
+      this.viewPending()
+      this.edited = !this.edited;
+      let confirmMessage = document.createElement("p")
+      let formDiv = document.getElementById("title")
+      confirmMessage.textContent="Edited"
+      formDiv?.append(confirmMessage)    
+    },
       () => {console.log("Please try again")}
     )
 

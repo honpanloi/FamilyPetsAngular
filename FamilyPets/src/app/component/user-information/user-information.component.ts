@@ -12,7 +12,12 @@ import { HomeComponent } from '../home/home.component';
 })
 export class UserInformationComponent implements OnInit {
   person:Person = new Person(0, "", "", "", true, new Date(), "", "");
-  constructor(private personService:PersonService, private router:Router, private cookieService:CookieService) { }
+  constructor(private personService:PersonService, private router:Router, private cookieService:CookieService) { 
+    this.loggedInPerson=JSON.parse(this.cookieService.get("person"))
+  }
+  
+  
+  loggedInPerson:Person = new Person(0,"","","",true,new Date(),"","")
 
   ngOnInit(): void {
     this.viewInformation();

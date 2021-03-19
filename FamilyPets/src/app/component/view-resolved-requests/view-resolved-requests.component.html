@@ -9,7 +9,7 @@
       <li><a  routerLink="info" (click)="moveToAnotherPage('/info')">Info </a> </li>
     </ul>
     <ul>
-      <li><a  routerLink="submit" (click)="moveToAnotherPage('/submit')">Submit </a> </li>
+      <li><a *ngIf="loggedInPerson.isbreeder===false" routerLink="submit" (click)="moveToAnotherPage('/submit')">Submit </a> </li>
     </ul>
     <ul>
       <li><a  routerLink="pending" (click)="moveToAnotherPage('/pending')">Pending </a> </li>
@@ -31,7 +31,7 @@
                 <td>Breed</td>
                 <td>Date Accepted</td>
                 <td>Date Issued</td>
-                <td>Photo Link</td>
+                <td>Photo</td>
                 <td>Request Status</td>
                 <td>Breeder ID</td>
                 <td>Buyer ID</td>
