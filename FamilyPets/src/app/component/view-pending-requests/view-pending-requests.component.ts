@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Person } from 'src/app/models/person/person';
 import { RequestService } from 'src/app/services/request/request.service';
 import { Request } from 'src/app/models/request/request';
+import { BreederHomepageComponent } from '../breeder-homepage/breeder-homepage.component';
 
 @Component({
   selector: 'app-view-pending-requests',
@@ -24,10 +25,13 @@ export class ViewPendingRequestsComponent implements OnInit {
   
   
   person:Person = new Person(0,"","","",true,new Date(),"","")
+
+  personPage:Person = new Person(0,"","","",true,new Date(),"","")
+
   request:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
   request2:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
   requests:Request[]=[];
-
+  requestid = 0;
   
 
   viewPending(){
@@ -36,12 +40,20 @@ export class ViewPendingRequestsComponent implements OnInit {
     () => {console.log("Please try again.")}
     )}
 
-    accept(){
-      this.requestService.accept(this.request.requestid).subscribe(
-        (data) => {console.log(data)},
-        (error) => {console.log("Please try again")}
+    breeder:Person = JSON.parse(this.cookieService.get("person"))
+    
+    accept(r:Request){
+      console.log(r)
+      this.request2 = new Request(r.requestid, r.animal, r.breed, new Date(), r.dateissued, r.photolink, "accepted", this.breeder, r.buyerid)
+      console.log(this.request2)
+      this.requestService.accept(this.request2).subscribe(
+        (data) => {console.log(data)
+        this.viewPending()},
+        () => {console.log("Please try again")}
       )
     };
 
 
 }
+
+

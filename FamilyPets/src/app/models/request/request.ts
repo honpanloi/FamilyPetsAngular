@@ -22,7 +22,7 @@ export class Request{
     this.photolink=photolink;
     this.requeststatus=requeststatus;
     this.breederid=breederid;
-    this.buyerid=breederid;
+    this.buyerid=buyerid;
         }
 
 }
