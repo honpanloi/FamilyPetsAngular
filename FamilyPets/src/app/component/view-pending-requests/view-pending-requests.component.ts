@@ -28,12 +28,20 @@ export class ViewPendingRequestsComponent implements OnInit {
   request2:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
   requests:Request[]=[];
 
-  updateInformation(){};
+  
 
   viewPending(){
     this.requestService.viewPending().subscribe(
     (data) => {this.requests=data},
     () => {console.log("Please try again.")}
     )}
+
+    accept(){
+      this.requestService.accept(this.request.requestid).subscribe(
+        (data) => {console.log(data)},
+        (error) => {console.log("Please try again")}
+      )
+    };
+
 
 }

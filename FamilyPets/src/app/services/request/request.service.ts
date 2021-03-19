@@ -14,8 +14,7 @@ export class RequestService {
 
   person:Person = new Person(0,"","","",true,new Date(),"","")
   request:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
-  // buyerid:number = 0;
-  // requeststatus:string = "";
+ 
 
   newRequest(request:Request):Observable<any>{
     return this.httpClient.post<Request>('http://localhost:8080/request/create', request);
@@ -27,6 +26,10 @@ export class RequestService {
 
   viewPending():Observable<any>{
     return this.httpClient.get('http://localhost:8080/request/pending/');
+  }
+
+  accept(request:Request):Observable<Request>{
+    return this.httpClient.post<Request>('http://localhost:8080/update', request);
   }
 
   viewAccepted(buyerid:number):Observable<any>{
