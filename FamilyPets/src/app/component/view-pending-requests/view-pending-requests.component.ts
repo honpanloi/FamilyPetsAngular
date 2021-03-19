@@ -24,6 +24,9 @@ export class ViewPendingRequestsComponent implements OnInit {
   
   
   person:Person = new Person(0,"","","",true,new Date(),"","")
+
+  personPage:Person = new Person(0,"","","",true,new Date(),"","")
+
   request:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
   request2:Request = new Request(0,"","", new Date(), new Date(), "", "", this.person, this.person)
   requests:Request[]=[];

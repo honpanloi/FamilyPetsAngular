@@ -26,11 +26,28 @@ export class RequestService {
   }
 
   viewPending():Observable<any>{
-    return this.httpClient.get('http://localhost:8080/request/pending/');
+
+    this.person = JSON.parse(this.cookieService.get("person"))
+    
+    if(this.person.isbreeder){
+      return this.httpClient.get('http://localhost:8080/request/pending');
+    }
+    else{
+      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/pending');
+    }
   }
 
-  viewAccepted(buyerid:number):Observable<any>{
-    return this.httpClient.get('http://localhost:8080/request/resolved/'+buyerid);
+  viewAccepted():Observable<any>{
+    
+    this.person = JSON.parse(this.cookieService.get("person"))
+
+    if(this.person.isbreeder){
+      return this.httpClient.get('http://localhost:8080/request/resolved/'+this.person.personid);
+    }
+    else{
+      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/accepted')
+    }
+
   }
 
 }
