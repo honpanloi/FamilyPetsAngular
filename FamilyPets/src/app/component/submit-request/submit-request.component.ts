@@ -29,7 +29,14 @@ export class SubmitRequestComponent implements OnInit {
     this.request.breederid=this.person2;
     
     this.requestService.newRequest(this.request).subscribe(
-    (Data) => {console.log(this.request)},
+    (Data) => {console.log(this.request)
+              this.request.animal=""
+              this.request.breed=""
+              let confirmMessage = document.createElement("p")
+              let formDiv = document.getElementById("formDiv")
+              confirmMessage.textContent="Submitted"
+              formDiv?.append(confirmMessage)  
+            },
       () => {console.log("Please try again.")}
     )}
 

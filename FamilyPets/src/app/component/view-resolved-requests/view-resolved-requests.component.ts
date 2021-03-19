@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Person } from 'src/app/models/person/person';
 import { RequestService } from 'src/app/services/request/request.service';
 import { Request } from 'src/app/models/request/request';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-view-resolved-requests',
@@ -11,7 +12,7 @@ import { Request } from 'src/app/models/request/request';
 })
 export class ViewResolvedRequestsComponent implements OnInit {
 
-  constructor(private requestService: RequestService, private router: Router) { }
+  constructor(private requestService: RequestService, private router: Router, private cookieService:CookieService) { }
 
   ngOnInit(): void {
     this.viewResolved();
@@ -32,5 +33,15 @@ export class ViewResolvedRequestsComponent implements OnInit {
     (data) => {this.requests=data},
     () => {console.log("Please try again.")}
     )}
+
+    displayChat:boolean =false;
+
+    viewChat(r:Request){
+      this.cookieService.set("chatId",r.requestid.toString())
+      if(this.displayChat===false){
+        this.displayChat = true;
+      }
+      console.log(this.cookieService.get("chatId"))
+    }
 
 }

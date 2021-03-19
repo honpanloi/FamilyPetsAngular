@@ -17,6 +17,7 @@ export class ViewPendingRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.viewPending();
+    this.toggleVisibility();
   }
 
   moveToAnotherPage(value : string){
@@ -33,6 +34,14 @@ export class ViewPendingRequestsComponent implements OnInit {
   requests:Request[]=[];
   requestid = 0;
   
+  visibility:boolean=false;
+
+  toggleVisibility(){
+    if(this.breeder.isbreeder){
+      this.visibility = true;
+    }
+  }
+
 
   viewPending(){
     this.requestService.viewPending().subscribe(

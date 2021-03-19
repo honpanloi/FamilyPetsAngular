@@ -35,10 +35,11 @@
                 <td>Request Status</td>
                 <td>Breeder ID</td>
                 <td>Buyer ID</td>
+                <td>Messages</td>
             </tr>
             <tbody>
             <tr *ngFor= "let r of requests">
-                <td>{{r.requestid}}</td>
+                <td>{{r.requestid}} <input [(ngModel)]="r.requestid" type=hidden></td>
                 <td>{{r.animal}}</td>
                 <td>{{r.breed}}</td>
                 <td>{{r.dateaccepted}}</td>
@@ -47,8 +48,9 @@
                 <td>{{r.requeststatus}}</td>
                 <td>{{r.breederid.personid}}</td>
                 <td>{{r.buyerid.personid}}</td>
+                <td><button (click)="viewChat(r)">View Message</button></td>
             </tr>
         </tbody>
     </table>
   </div>
-  
+  <app-chat *ngIf="displayChat === true"></app-chat>

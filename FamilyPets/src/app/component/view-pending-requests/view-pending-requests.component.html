@@ -48,7 +48,7 @@
                 <td>{{r.requeststatus}}<input name="r.requeststatus" [(ngModel)]="r.requeststatus" type="hidden"></td>
                 <td>{{r.breederid}}<input name="r.breederid" [(ngModel)]="r.breederid" type="hidden"></td>
                 <td>{{r.buyerid.personid}}<input name="r.buyerid.personid" [(ngModel)]="r.buyerid.personid" type="hidden"></td>
-                <td><button class="acceptButton" id="r.requestid" (click)="accept(r)">Accept</button></td>
+                <td><button *ngIf="visibility===true" class="acceptButton" id="r.requestid" (click)="accept(r)">Accept</button></td>
             </tr>
              
             
