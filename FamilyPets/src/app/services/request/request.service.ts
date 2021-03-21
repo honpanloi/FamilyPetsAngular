@@ -17,11 +17,11 @@ export class RequestService {
  
 
   newRequest(request:Request):Observable<any>{
-    return this.httpClient.post<Request>('http://localhost:8080/request/create', request);
+    return this.httpClient.post<Request>('http://3.141.97.16:8080/request/create', request);
   }
 
   viewRequests(buyerid:number, requeststatus:string):Observable<any>{
-    return this.httpClient.get('http://localhost:8080/request/view/'+buyerid+'/'+requeststatus);
+    return this.httpClient.get('http://3.141.97.16:8080/request/view/'+buyerid+'/'+requeststatus);
   }
 
   viewPending():Observable<any>{
@@ -29,19 +29,19 @@ export class RequestService {
     this.person = JSON.parse(this.cookieService.get("person"))
     
     if(this.person.isbreeder){
-      return this.httpClient.get('http://localhost:8080/request/pending');
+      return this.httpClient.get('http://3.141.97.16:8080/request/pending');
     }
     else{
-      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/pending');
+      return this.httpClient.get('http://3.141.97.16:8080/request/view/' +this.person.personid+ '/pending');
     }
   }
 
   accept(request:Request):Observable<any>{
-    return this.httpClient.post<Request>('http://localhost:8080/request/update', request);
+    return this.httpClient.post<Request>('http://3.141.97.16:8080/request/update', request);
   }
 
   update(request:Request):Observable<any>{
-    return this.httpClient.post<Request>('http://localhost:8080/request/update/animaltype', request);
+    return this.httpClient.post<Request>('http://3.141.97.16:8080/request/update/animaltype', request);
   }
 
 
@@ -51,10 +51,10 @@ export class RequestService {
     this.person = JSON.parse(this.cookieService.get("person"))
 
     if(this.person.isbreeder){
-      return this.httpClient.get('http://localhost:8080/request/resolved/'+this.person.personid);
+      return this.httpClient.get('http://3.141.97.16:8080/request/resolved/'+this.person.personid);
     }
     else{
-      return this.httpClient.get('http://localhost:8080/request/view/' +this.person.personid+ '/accepted')
+      return this.httpClient.get('http://3.141.97.16:8080/request/view/' +this.person.personid+ '/accepted')
     }
 
   }

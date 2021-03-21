@@ -13,7 +13,7 @@ export class MessageService {
 
   getMessageByRequestId(requestid:number):Observable<Message[]>{
 
-    return this.httpClient.get('http://localhost:8080/messages/view/'+requestid) as Observable <Message[]>;
+    return this.httpClient.get('http://3.141.97.16:8080/messages/view/'+requestid) as Observable <Message[]>;
   }
 
   sendMessage(content:string, sender:Person, requestid:number):Observable<any>{

@@ -15,6 +15,7 @@ import { HomeComponent } from './component/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
     
   ],
 

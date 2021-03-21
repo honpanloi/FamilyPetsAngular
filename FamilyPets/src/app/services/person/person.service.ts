@@ -17,11 +17,11 @@ export class PersonService {
 
     this.person = JSON.parse(this.cookieService.get("person"))
     
-    return this.httpClient.get<any>('http://localhost:8080/person/view/'+this.person.personid);
+    return this.httpClient.get<any>('http://3.141.97.16:8080/person/view/'+this.person.personid);
   }
 
   updateInformation(person:Person):Observable<Person>{
-    return this.httpClient.post<Person>('http://localhost:8080/person/update', person);
+    return this.httpClient.post<Person>('http://3.141.97.16:8080/person/update', person);
   }
 
 }

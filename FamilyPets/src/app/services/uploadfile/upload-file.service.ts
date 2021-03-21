@@ -12,7 +12,7 @@ export class UploadFileService {
   upload(file: File): Observable<HttpEvent<{}>> {    
     const data: FormData = new FormData();    
     data.append('file', file);
-    const newRequest = new HttpRequest('POST', 'http://localhost:8080/image/upload', data, {
+    const newRequest = new HttpRequest('POST', 'http://3.141.97.16:8080/image/upload', data, {
     });    
     return this.https.request(newRequest);
   }

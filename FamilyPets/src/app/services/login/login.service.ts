@@ -23,7 +23,7 @@ export class LoginService {
     
     
 
-    this.returnedPerson = this.httpClient.post<Person>('http://localhost:8080/login?email='+email+'&password='+password, "", { });
+    this.returnedPerson = this.httpClient.post<Person>('http://3.141.97.16:8080/login?email='+email+'&password='+password, "", {withCredentials:true });
 
     this.returnedPerson.subscribe(
       (data) => {

@@ -62,23 +62,47 @@ export class ViewResolvedRequestsComponent implements OnInit {
     //   console.log(this.file.name)
     // }
 
+    selectedFiles!: FileList;
+    currentFileUpload!: File;
+
+    selectFile(event:any){
+      this.selectedFiles = event.target.files;
+    }
+
     upload(r:Request){
       
       // this.fileInput = document.getElementById(r.requestid.toString());
-
-      
-      
-        
-        // this.uploadFileService.upload(file).subscribe(
-        // (data) => {
-        //   console.log("File Uploaded!!")
-        // },
-        // () => {
-        //   console.log("Error uploading.")
-        // }
-      // )
+ 
+        this.uploadFileService.upload(this.file).subscribe(
+        (data) => {
+          console.log("File Uploaded!!")
+        },
+        () => {
+          console.log("Error uploading.")
+        }
+      )
       
          
     }
 
+    msg: string = "";
+    url: String = "";
+
+    onSubmit(){
+
+      if(this.file===undefined){
+        alert("No file was provided.")
+      }
+    this.uploadFileService.upload(this.file).subscribe(
+      data => {
+        this.msg = "uploaded image"
+        // this.url = data.url;
+      }
+    )
+    }
+    
+
+    handleFileInput(files: FileList) {
+      this.file = files.item(0);
+    }
 }

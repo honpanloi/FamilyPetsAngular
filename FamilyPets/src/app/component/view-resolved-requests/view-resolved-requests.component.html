@@ -50,8 +50,10 @@
                 <td>{{r.breederid.personid}}</td>
                 <td>{{r.buyerid.personid}}</td>
                 <td><button (click)="viewChat(r)">View Message</button></td>
-                <td><input  id="r.requestid" type="file"><br>
-                    <button (click)="upload(r)">Upload</button></td>
+                <td>
+                  <input id="r.requestid" (change)="selectFile($event)" type="file" required><br>
+                    <button type="submit" [disabled]="!selectedFiles" (click)="upload(r)">Upload</button>
+                    <img [src]="url"></td>
             </tr>
         </tbody>
     </table>
