@@ -36,6 +36,7 @@
                 <td>Breeder ID</td>
                 <td>Buyer ID</td>
                 <td>Messages</td>
+                <td>Upload</td>
             </tr>
             <tbody>
             <tr *ngFor= "let r of requests">
@@ -49,6 +50,8 @@
                 <td>{{r.breederid.personid}}</td>
                 <td>{{r.buyerid.personid}}</td>
                 <td><button (click)="viewChat(r)">View Message</button></td>
+                <td><input (change)="change(r)" id="r.requestid" type="file"><br>
+                    <button (click)="upload(r)">Upload</button></td>
             </tr>
         </tbody>
     </table>
