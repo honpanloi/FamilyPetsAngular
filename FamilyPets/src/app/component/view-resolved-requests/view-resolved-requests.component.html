@@ -50,7 +50,7 @@
                 <td>{{r.breederid.personid}}</td>
                 <td>{{r.buyerid.personid}}</td>
                 <td><button (click)="viewChat(r)">View Message</button></td>
-                <td><input (change)="change(r)" id="r.requestid" type="file"><br>
+                <td><input (change)="change($event.target.fileInput)" id="r.requestid" type="file"><br>
                     <button (click)="upload(r)">Upload</button></td>
             </tr>
         </tbody>

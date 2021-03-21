@@ -57,8 +57,8 @@ export class ViewResolvedRequestsComponent implements OnInit {
     file:any;
     //document.getElementById("fileInput")
     
-    change(r:Request){
-      this.file = this.fileInput.item(0);
+    change(fileInput: FileList){
+      this.file = fileInput.item(0);
       console.log(this.file.name)
     }
 
