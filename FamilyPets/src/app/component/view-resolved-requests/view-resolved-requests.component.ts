@@ -4,7 +4,7 @@ import { Person } from 'src/app/models/person/person';
 import { RequestService } from 'src/app/services/request/request.service';
 import { Request } from 'src/app/models/request/request';
 import { CookieService } from 'ngx-cookie-service';
-import { UploadFileService } from 'src/app/services/login/uploadfile/upload-file.service';
+import { UploadFileService } from 'src/app/services/uploadfile/upload-file.service';
 
 @Component({
   selector: 'app-view-resolved-requests',
@@ -53,14 +53,14 @@ export class ViewResolvedRequestsComponent implements OnInit {
       //console.log(this.cookieService.get("chatId"))
     }
 
-    fileInput:FileList = new FileList();
+    // fileInput:FileList = new FileList();
     file:any;
     //document.getElementById("fileInput")
     
-    change(fileInput: FileList){
-      this.file = fileInput.item(0);
-      console.log(this.file.name)
-    }
+    // change(files: FileList){
+    //   this.file = files.item(0);
+    //   console.log(this.file.name)
+    // }
 
     upload(r:Request){
       
