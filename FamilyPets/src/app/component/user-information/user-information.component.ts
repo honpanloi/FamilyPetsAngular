@@ -46,6 +46,7 @@ export class UserInformationComponent implements OnInit {
     this.person2.personid = this.person.personid;
     if(!this.person2.firstname){this.person2.firstname=this.person.firstname}
     if(!this.person2.lastname){this.person2.lastname=this.person.lastname}
+    this.person2.isbreeder=this.person.isbreeder;
     this.person2.dob=this.person.dob;
     if(!this.person2.city){this.person2.city=this.person.city}
     if(!this.person2.phonenumber){this.person2.phonenumber=this.person.phonenumber}
