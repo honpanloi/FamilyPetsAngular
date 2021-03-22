@@ -24,9 +24,9 @@
     <p *ngIf="edited===true" id="editText"> </p>
   <div>
   
-      <table class="tableBorderedStriped">
-        <thead class= "thead-dark">
-            <tr>
+      <table class="styled-table">
+        <thead >
+            <tr class="active-row">
                 <td>Request Id</td>
                 <td>Animal</td>
                 <td>Breed</td>
@@ -39,7 +39,7 @@
                 <td></td>
             </tr>
             <tbody>
-            <tr *ngFor= "let r of requests">              
+            <tr class="active-row" *ngFor= "let r of requests">              
                 <td>{{r.requestid}}<input name="r.requestid" [(ngModel)]="r.requestid" type="hidden"></td>
                 <td>{{r.animal}}<br><input *ngIf="loggedInPerson.isbreeder===false"  [(ngModel)]="r.animal"> <input name="r.animal" [(ngModel)]="r.animal" type="hidden"></td>
                 <td>{{r.breed}}<br><input *ngIf="loggedInPerson.isbreeder===false"  [(ngModel)]="r.breed"> <input name="r.breed" [(ngModel)]="r.breed" type="hidden"></td>

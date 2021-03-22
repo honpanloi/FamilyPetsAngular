@@ -23,48 +23,48 @@
 
 <div>
 
-    <table class="table table-bordered table-striped">
-      <thead class= "thead-dark">
-          <tr>
+    <table class="styled-table">
+      <tbody>     
+          <tr class="active-row">
 
               <td scope="col">First Name:</td>
               <td>{{person.firstname}} </td>
                 <td><input type='text' [(ngModel)]="person2.firstname" ></td>
          </tr>
-          <tr>
+          <tr class="active-row">
               <td>Last Name:</td>
               <td> {{person.lastname}}</td>
               <td><input type='text' [(ngModel)]="person2.lastname" ></td>
           </tr>
-      </thead>
-      <tbody>
-          <tr>
+      
+      
+          <tr class="active-row">
               <td>Date of birth:</td>
               <td>{{person.dob}}</td>
              
           </tr>
-          <tr>
+          <tr class="active-row">
             <td>City:</td>
             <td>{{person.city}}</td>
             <td><input type='text' [(ngModel)]="person2.city" ></td>
           </tr>
-          <tr>
+          <tr class="active-row">
             <td>Phone Number:</td>
             <td>{{person.phonenumber}}</td>
             <td><input type='text' [(ngModel)]="person2.phonenumber" ></td>
           </tr>
-          <tr>
+          <tr class="active-row">
             <td>Is Breeder:</td>
             <td>{{person.isbreeder}}</td>
 
           </tr>
-          <tr>
+          <tr class="active-row">
             <td>Email:</td>
             <td>{{person.email}}</td>
             <td><input type='text' [(ngModel)]="person2.email" ></td>
           </tr>
-          <tr>
-           <td></td><td></td> <button (click)="updateInformation()">Submit</button> 
+          <tr class="active-row">
+           <td></td> <button (click)="updateInformation()">Submit</button> 
           </tr>
       </tbody>
   </table>

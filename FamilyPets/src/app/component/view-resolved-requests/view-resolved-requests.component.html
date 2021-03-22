@@ -23,9 +23,9 @@
   
   <div>
   
-      <table class="table table-bordered table-striped">
-        <thead class= "thead-dark">
-            <tr>
+      <table class="styled-table">
+        <thead>
+            <tr class="active-row">
                 <td>Request Id</td>
                 <td>Animal</td>
                 <td>Breed</td>
@@ -39,7 +39,7 @@
                 <td>Upload</td>
             </tr>
             <tbody>
-            <tr *ngFor= "let r of requests">
+            <tr class="active-row" *ngFor= "let r of requests">
                 <td>{{r.requestid}} <input [(ngModel)]="r.requestid" type=hidden></td>
                 <td>{{r.animal}}</td>
                 <td>{{r.breed}}</td>

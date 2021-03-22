@@ -1,36 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-
+html
+{
+  /* background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190622/ourmid/pngtree-cartoon-simple-animal-background-image_226232.jpg");
+  background-repeat:contain;
+  background-size:cover; */
+}
 body
 {
     text-align: center;
     margin: 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;   
-    
+    font-size: 25px;   
+    background-color: rgb(255, 255, 255);  
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200317/pngtree-silhouette-animals-watercolor-background-image_331983.jpg");
+    background-repeat:contain;
+    /* background-size:cover; */
+    background-size: 1000px 500px;
 }
 .container
 {
     width: 100%;
     margin: 0;
-    padding: 1em 0;
+    /* padding: 1em 0; */
 }
-
-
-
-
 
 header
 {
-    background-color: rgb(207, 205, 205);    
-}
+    background-color: rgb(133, 134, 138);  
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-hand-painted-xiaoxi-anime-scene-print-ad-image_147150.jpg");
+    /* background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20190220/ourmid/pngtree-childrens-day-cartoon-animal-lollipop-image_6056.jpg");   */
+    background-size:cover;
+  }
 
 ul {
-    list-style-type: none;
-    
+    list-style-type: none;    
     margin: 0 5px;   
-      
+     
   }
   
   li {
@@ -53,3 +60,42 @@ ul {
   li a:hover {
     background-color: rgb(136, 190, 221);
   }
+  
+  .styled-table
+  {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .styled-table tr
+  {
+   
+    color: #383838;
+    text-align: center;
+  }
+  .styled-table td
+  {
+    padding: 30px 20px;
+  }
+  .styled-table tbody tr
+  {
+    border-bottom: 1px solid #dddddd;
+  }
+/* .styled-table tbody tr:nth-of-type(even)
+{
+  background-color: #82cbd8;
+} */
+/* .styled-table tbody tr:last-of-type
+{
+  border-bottom: 2px solid #646464;
+} */
+.styled-table tbody tr.active-row
+{
+  font-weight: bold;
+  color: #292b2a;
+}
